@@ -1,0 +1,8 @@
+
+<h3>{{errorMsg}}</h3>
+
+<div class="body" *ngIf="clinics">
+  <div *ngFor="let clinic of clinics">
+    <mat-card>{{clinic.nameEn + ' ' +clinic.nameAr}}</mat-card>
+  </div>
+</div>

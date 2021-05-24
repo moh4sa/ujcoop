@@ -1,0 +1,23 @@
+<div class="formSection">
+
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>User Id</mat-label>
+            <input type="number" matInput placeholder="Placeholder" formControlName="id" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        
+        <div class="errorMSG" *ngIf="showError"> you'ev entered a wrong ID or password</div>
+        <div>
+            <button mat-raised-button color="primary" [disabled]="!login.valid"> submit</button>
+        </div>
+        
+    </form>
+</div>
